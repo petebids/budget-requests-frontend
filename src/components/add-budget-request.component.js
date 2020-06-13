@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import BudgetRequestDataService from "../service/budget-request.service";
-import Button from '@material-ui/core/Button';  
+import { Link } from "react-router-dom";
 
 
 
@@ -12,10 +12,11 @@ export default class AddBudgetRequest extends Component{
         this.newBudgetRequest = this.newBudgetRequest.bind(this);
         this.state= {
           submitted: false,
+          linkValue :null,
           formFields:{
             projectCode : "", 
             projectType : "", 
-            projectBudget: null, 
+            projectBudget: 1000, 
             costCentre: "", 
             branchNumber: "" ,
             fibreProjectManager: "",
@@ -92,9 +93,12 @@ export default class AddBudgetRequest extends Component{
             {this.state.submitted ? (
               <div>
                 <h4>You submitted successfully!</h4>
-                <Button  variant="contained" color="primary" onClick={this.newBudgetRequest}>
-                  Add
-                </Button >
+                <Link
+                to={"/budgetrequest/" + this.state.id}
+                className="badge badge-warning"
+              >
+                Edit
+              </Link>
               </div>
             ) : (
               <div>
