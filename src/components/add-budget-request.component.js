@@ -95,9 +95,9 @@ export default class AddBudgetRequest extends Component{
                 <h4>You submitted successfully!</h4>
                 <Link
                 to={"/budgetrequest/" + this.state.id}
-                className="badge badge-warning"
+                className="badge badge-primary"
               >
-                Edit
+                View
               </Link>
               </div>
             ) : (
